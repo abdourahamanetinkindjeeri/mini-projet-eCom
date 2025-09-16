@@ -69,6 +69,12 @@ export default function ProductCard() {
             }}
           >
             <span>Price: $</span>
+            <button
+              onClick={() => setMinPrice(Math.max(0, minPrice - 1))}
+              style={{ padding: "2px 8px" }}
+            >
+              –
+            </button>
             <input
               type="number"
               min={0}
@@ -82,7 +88,19 @@ export default function ProductCard() {
                 padding: "4px",
               }}
             />
+            <button
+              onClick={() => setMinPrice(Math.min(999, minPrice + 1))}
+              style={{ padding: "2px 8px" }}
+            >
+              +
+            </button>
             <span>- $</span>
+            <button
+              onClick={() => setMaxPrice(Math.max(0, maxPrice - 1))}
+              style={{ padding: "2px 8px" }}
+            >
+              –
+            </button>
             <input
               type="number"
               min={0}
@@ -96,6 +114,12 @@ export default function ProductCard() {
                 padding: "4px",
               }}
             />
+            <button
+              onClick={() => setMaxPrice(Math.min(999, maxPrice + 1))}
+              style={{ padding: "2px 8px" }}
+            >
+              +
+            </button>
           </div>
           <div style={{ borderTop: "1px solid #444", marginTop: "8px" }}>
             <ArticleList produits={filteredProducts} />
