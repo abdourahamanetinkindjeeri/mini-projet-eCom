@@ -19,7 +19,7 @@ export const FAKE_DATA = [
     stock: 0,
     price: 249,
     image: airpods_pro_2,
-    isLike: false,
+    isLike: true,
   },
   {
     id: 3,

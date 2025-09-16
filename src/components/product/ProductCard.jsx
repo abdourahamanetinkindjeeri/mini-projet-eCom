@@ -4,16 +4,14 @@ import ArticleCard from "./article/ArticleCard";
 import ArticleList from "./article/ArticleList";
 
 export default function ProductCard() {
-  const [likes, setLikes] = useState({});
+  const [products, setProducts] = useState(FAKE_DATA);
 
   function toggleLike(id) {
-    setLikes(function (previousLikes) {
-      const updatedLikes = { ...previousLikes };
-
-      updatedLikes[id] = !previousLikes[id];
-
-      return updatedLikes;
-    });
+    setProducts((prevProducts) =>
+      prevProducts.map((prod) =>
+        prod.id === id ? { ...prod, isLike: !prod.isLike } : prod
+      )
+    );
   }
 
   return (
@@ -37,10 +35,10 @@ export default function ProductCard() {
             marginBottom: "40px",
           }}
         >
-          {FAKE_DATA.map((produit) => (
+          {products.map((produit) => (
             <ArticleCard
               key={produit.label}
-              produit={{ ...produit, isLike: likes[produit.id] }}
+              produit={produit}
               onToggleLike={toggleLike}
             />
           ))}
@@ -93,7 +91,7 @@ export default function ProductCard() {
             />
           </div>
           <div style={{ borderTop: "1px solid #444", marginTop: "8px" }}>
-            {FAKE_DATA.map((produit) => (
+            {products.map((produit) => (
               <ArticleList key={produit.label} produit={produit} />
             ))}
           </div>
