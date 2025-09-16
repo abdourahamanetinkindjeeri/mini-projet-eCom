@@ -6,8 +6,13 @@ function ArticleCard({ produit, onToggleLike }) {
   console.log("Render:", produit.label);
 
   const [isVisible, setIsVisible] = useState(false);
+  const [stock, setStock] = useState(produit.stock);
+
   const handleShow = () => setIsVisible(true);
   const handleReduce = () => setIsVisible(false);
+  const handleBuy = (quantity) => {
+    if (stock >= quantity) setStock(stock - quantity);
+  };
 
   return (
     <div
@@ -56,7 +61,7 @@ function ArticleCard({ produit, onToggleLike }) {
         />
       </div>
 
-      {produit.stock === 0 ? (
+      {stock === 0 ? (
         <p
           style={{
             margin: "8px 0",
@@ -93,7 +98,7 @@ function ArticleCard({ produit, onToggleLike }) {
                   color: "limegreen",
                 }}
               >
-                {produit.stock} items available
+                {stock} items available
               </p>
 
               <p
@@ -114,8 +119,12 @@ function ArticleCard({ produit, onToggleLike }) {
                   gap: "8px",
                 }}
               >
-                <Button label="Buy" />
-                <Button label="Buy 2" />
+                {stock >= 1 && (
+                  <Button label="Buy" onClick={() => handleBuy(1)} />
+                )}
+                {stock >= 2 && (
+                  <Button label="Buy 2" onClick={() => handleBuy(2)} />
+                )}
               </div>
               <div
                 style={{

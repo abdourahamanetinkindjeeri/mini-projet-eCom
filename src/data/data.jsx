@@ -6,7 +6,7 @@ export const FAKE_DATA = [
     id: 1,
     label: "iPhone 15 Pro",
     specification: "Show",
-    stock: 10,
+    stock: 1,
     price: 999,
     image: iphone_15_pro,
     isLike: false,
