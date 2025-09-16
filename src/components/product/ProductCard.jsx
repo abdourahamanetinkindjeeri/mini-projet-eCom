@@ -5,6 +5,8 @@ import ArticleList from "./article/ArticleList";
 
 export default function ProductCard() {
   const [products, setProducts] = useState(FAKE_DATA);
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(999);
 
   function toggleLike(id) {
     setProducts((prevProducts) =>
@@ -13,6 +15,10 @@ export default function ProductCard() {
       )
     );
   }
+
+  const filteredProducts = products.filter(
+    (prod) => prod.price >= minPrice && prod.price <= maxPrice
+  );
 
   return (
     <div style={{ background: "#232733", minHeight: "100vh", width: "100%" }}>
@@ -48,7 +54,6 @@ export default function ProductCard() {
           style={{
             color: "white",
             marginTop: "32px",
-            // paddingLeft: "32px",
             maxWidth: "700px",
           }}
         >
@@ -68,7 +73,8 @@ export default function ProductCard() {
               type="number"
               min={0}
               max={999}
-              value={0}
+              value={minPrice}
+              onChange={(e) => setMinPrice(Number(e.target.value))}
               style={{
                 width: "60px",
                 borderRadius: "4px",
@@ -81,7 +87,8 @@ export default function ProductCard() {
               type="number"
               min={0}
               max={999}
-              value={999}
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(Number(e.target.value))}
               style={{
                 width: "60px",
                 borderRadius: "4px",
@@ -91,9 +98,7 @@ export default function ProductCard() {
             />
           </div>
           <div style={{ borderTop: "1px solid #444", marginTop: "8px" }}>
-            {products.map((produit) => (
-              <ArticleList key={produit.label} produit={produit} />
-            ))}
+            <ArticleList produits={filteredProducts} />
           </div>
         </div>
       </div>
