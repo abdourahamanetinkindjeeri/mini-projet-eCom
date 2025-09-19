@@ -38,7 +38,7 @@ export default function Product({
       </div>
       <div className="flex flex-col gap-2">
         <h2 className="ml-48 font-bold text-3xl mt-1">Your cart</h2>
-
+          
         <div className="flex flex-col items-center justify-center ml-47 mr-47 bg-white rounded-lg shadow-8xl">
           {carts.map((product) => (
             <ProductList
@@ -51,7 +51,9 @@ export default function Product({
           ))}
           <div className="text-3xl ml-150">
             Total :$
-            {carts.reduce((acc, cart) => acc + cart.price * cart.qte, 0).toLocaleString("fr-FR") }
+            {carts
+              .reduce((acc, cart) => acc + cart.price * cart.qte, 0)
+              .toLocaleString("fr-FR")}
           </div>
         </div>
       </div>

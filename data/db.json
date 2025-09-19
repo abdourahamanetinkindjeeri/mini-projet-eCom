@@ -4,22 +4,31 @@
       "id": "1",
       "name": "Laptop",
       "price": 1999,
-      "stock": 0
+      "stock": 4
     },
     {
       "id": "2",
       "name": "AirPods Max",
       "price": 650.99,
-      "stock": 0
+      "stock": 3
     },
     {
       "id": "3",
       "name": "Mouse",
       "price": 5.99,
-      "stock": 0
+      "stock": 2
     }
   ],
   "carts": [
-    
+    {
+      "id": "eom0",
+      "productId": "1",
+      "qte": 1
+    },
+    {
+      "id": "5w88",
+      "productId": "2",
+      "qte": 1
+    }
   ]
 }
