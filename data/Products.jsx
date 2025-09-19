@@ -1,0 +1,40 @@
+const PRODUCTS = [
+  {
+    id: 1,
+    name: "Laptop",
+    price: 1999.0,
+    stock: 10,
+    available: true,
+    image: "/images/iphoneX.png",
+    color: "Silver",
+    weight: "187g",
+    warranty: "1 year",
+    views: 0,
+  },
+  {
+    id: 2,
+    name: "AirPods Max",
+    price: 650.99,
+    stock: 4,
+    available: false,
+    image: "/images/airpods.png",
+    color: "White",
+    weight: "56g",
+    warranty: "6 months",
+    views: 0,
+  },
+  {
+    id: 3,
+    name: "Mouse",
+    price: 5.99,
+    stock: 6,
+    available: true,
+    image: "/images/applewatch.png",
+    color: "Red",
+    weight: "38g",
+    warranty: "1 year",
+    views: 0,
+  },
+];
+
+export default PRODUCTS;
